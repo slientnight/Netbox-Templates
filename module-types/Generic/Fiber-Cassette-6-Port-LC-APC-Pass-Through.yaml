@@ -1,0 +1,51 @@
+---
+manufacturer: Generic
+model: Fiber Cassette - 6 Port LC/APC Pass-Through
+slug: generic-fiber-cassette-6-port-lc-apc-pass-through
+part_number: FC-6P-LCAPC-PT
+airflow: passive
+comments: 'Six-port LC/APC pass-through cassette. Each front port maps 1:1 to the matching rear port on the same module.'
+front-ports:
+  - name: '{module}:01'
+    type: lc-apc
+    rear_port: '{module}:01'
+    rear_port_position: 1
+  - name: '{module}:02'
+    type: lc-apc
+    rear_port: '{module}:02'
+    rear_port_position: 1
+  - name: '{module}:03'
+    type: lc-apc
+    rear_port: '{module}:03'
+    rear_port_position: 1
+  - name: '{module}:04'
+    type: lc-apc
+    rear_port: '{module}:04'
+    rear_port_position: 1
+  - name: '{module}:05'
+    type: lc-apc
+    rear_port: '{module}:05'
+    rear_port_position: 1
+  - name: '{module}:06'
+    type: lc-apc
+    rear_port: '{module}:06'
+    rear_port_position: 1
+rear-ports:
+  - name: '{module}:01'
+    type: lc-apc
+    positions: 1
+  - name: '{module}:02'
+    type: lc-apc
+    positions: 1
+  - name: '{module}:03'
+    type: lc-apc
+    positions: 1
+  - name: '{module}:04'
+    type: lc-apc
+    positions: 1
+  - name: '{module}:05'
+    type: lc-apc
+    positions: 1
+  - name: '{module}:06'
+    type: lc-apc
+    positions: 1

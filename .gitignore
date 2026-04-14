@@ -1,0 +1,20 @@
+# Kiro
+.kiro/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE temporary files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+env/

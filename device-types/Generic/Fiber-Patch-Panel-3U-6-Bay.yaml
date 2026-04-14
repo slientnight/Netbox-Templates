@@ -1,0 +1,22 @@
+---
+manufacturer: Generic
+model: Fiber Patch Panel - 3U - 6 Bay
+slug: generic-fiber-patch-panel-3u-6-bay
+u_height: 3.0
+is_full_depth: false
+airflow: passive
+is_powered: false
+comments: '3U fiber patch panel enclosure with six cassette bays. Intended for use with the Generic Fiber Cassette - 6 Port LC/APC Pass-Through module type.'
+module-bays:
+  - name: Bay 01
+    position: '01'
+  - name: Bay 02
+    position: '02'
+  - name: Bay 03
+    position: '03'
+  - name: Bay 04
+    position: '04'
+  - name: Bay 05
+    position: '05'
+  - name: Bay 06
+    position: '06'
