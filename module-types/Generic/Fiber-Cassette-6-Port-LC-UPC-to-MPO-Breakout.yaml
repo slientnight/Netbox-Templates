@@ -1,0 +1,36 @@
+---
+manufacturer: Generic
+model: Fiber Cassette - 6 Port LC/UPC to MPO Breakout
+slug: generic-fiber-cassette-6-port-lc-upc-mpo-breakout
+part_number: FC-6P-LCUPC-MPO-BO
+airflow: passive
+comments: 'Six-port LC/UPC front to single MPO rear breakout cassette (Method A polarity). Each front LC port represents one duplex pair mapped to one position on the 12-fiber MPO rear connector (positions represent logical duplex circuits, not individual fiber strands).'
+front-ports:
+  - name: '{module}:01'
+    type: lc-upc
+    rear_port: '{module}:MPO-01'
+    rear_port_position: 1
+  - name: '{module}:02'
+    type: lc-upc
+    rear_port: '{module}:MPO-01'
+    rear_port_position: 2
+  - name: '{module}:03'
+    type: lc-upc
+    rear_port: '{module}:MPO-01'
+    rear_port_position: 3
+  - name: '{module}:04'
+    type: lc-upc
+    rear_port: '{module}:MPO-01'
+    rear_port_position: 4
+  - name: '{module}:05'
+    type: lc-upc
+    rear_port: '{module}:MPO-01'
+    rear_port_position: 5
+  - name: '{module}:06'
+    type: lc-upc
+    rear_port: '{module}:MPO-01'
+    rear_port_position: 6
+rear-ports:
+  - name: '{module}:MPO-01'
+    type: mpo
+    positions: 6

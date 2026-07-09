@@ -7,11 +7,16 @@ This repository contains NetBox device-type and module-type YAML templates for f
 ```text
 device-types/
 └── Generic/
+    ├── Fiber-Patch-Panel-1U-4-Bay.yaml
     ├── Fiber-Patch-Panel-3U-6-Bay.yaml
     └── Fiber-Patch-Panel-4U-12-Bay.yaml
 module-types/
 └── Generic/
-    └── Fiber-Cassette-6-Port-LC-APC-Pass-Through.yaml
+    ├── Fiber-Cassette-6-Port-LC-APC-Pass-Through.yaml
+    ├── Fiber-Cassette-12-Port-LC-APC-Pass-Through.yaml
+    ├── Fiber-Cassette-6-Port-LC-UPC-Pass-Through.yaml
+    ├── Fiber-Cassette-12-Port-LC-UPC-Pass-Through.yaml
+    └── Fiber-Cassette-6-Port-LC-UPC-to-MPO-Breakout.yaml
 ```
 
 ## Templates
@@ -27,13 +32,34 @@ module-types/
 
 | Template | Description |
 |----------|-------------|
-| `Fiber-Cassette-6-Port-LC-APC-Pass-Through.yaml` | Fiber cassette module with 6 LC/APC front ports passing through to bare fiber on the rear, 1:1 mapping |
+| `Fiber-Cassette-6-Port-LC-APC-Pass-Through.yaml` | 6 LC/APC front ports, 1:1 pass-through to 6 LC/APC rear ports |
+| `Fiber-Cassette-12-Port-LC-APC-Pass-Through.yaml` | 12 LC/APC front ports, 1:1 pass-through to 12 LC/APC rear ports |
+| `Fiber-Cassette-6-Port-LC-UPC-Pass-Through.yaml` | 6 LC/UPC front ports, 1:1 pass-through to 6 LC/UPC rear ports |
+| `Fiber-Cassette-12-Port-LC-UPC-Pass-Through.yaml` | 12 LC/UPC front ports, 1:1 pass-through to 12 LC/UPC rear ports |
+| `Fiber-Cassette-6-Port-LC-UPC-to-MPO-Breakout.yaml` | 6 LC/UPC front ports breaking out to a single MPO rear port (Method A polarity) |
 
 ## Device-Type / Module-Type Relationship
 
-The patch panels are **enclosures** that define module bays — they do not have ports of their own. The cassette is a **module type** that slots into those bays, providing LC/APC front ports that pass through to bare fiber stubs on the rear of the cassette.
+The patch panels are **enclosures** that define module bays — they do not have ports of their own. The cassettes are **module types** that slot into those bays, providing LC front ports that pass through to either individual rear ports (LC-to-LC) or a shared MPO rear connector (LC-to-MPO breakout).
 
 Each front port references its corresponding rear port by name using the `{module}` token, which NetBox resolves to the module bay name at install time.
+
+## MPO Breakout Cassettes
+
+The MPO breakout templates model a common fiber cassette where multiple duplex LC front ports fan into a single MPO rear connector. In NetBox, this is represented using the rear port `positions` field:
+
+- A single rear port of type `mpo` is defined with `positions: N`, where N is the number of front ports (logical duplex circuits)
+- Each front port maps to the same rear port but claims a unique `rear_port_position` (1 through N)
+- Positions represent logical duplex connections, not individual fiber strands (6 positions = 6 duplex pairs = 12 physical fibers)
+
+For example, the 6-port LC/UPC to MPO template has:
+- 6 LC/UPC front ports (each a duplex pair)
+- 1 MPO rear port with `positions: 6`
+- Front port 01 → MPO position 1, port 02 → position 2, etc.
+
+The Method A (straight) polarity mapping is used, meaning fiber positions are not flipped end-to-end.
+
+For more details on how NetBox models multi-position rear ports and breakout paths, see the [NetBox Rear Port documentation](https://netboxlabs.com/docs/netbox/en/stable/models/dcim/rearport/).
 
 ## Port Counts (Fully Populated)
 
@@ -41,8 +67,17 @@ When every bay is populated with a 6-port cassette:
 
 | Panel | Bays | Ports per Bay | Total Ports |
 |-------|------|---------------|-------------|
+| 1U – 4 Bay | 4 | 6 | **24** |
 | 3U – 6 Bay | 6 | 6 | **36** |
 | 4U – 12 Bay | 12 | 6 | **72** |
+
+When every bay is populated with a 12-port cassette:
+
+| Panel | Bays | Ports per Bay | Total Ports |
+|-------|------|---------------|-------------|
+| 1U – 4 Bay | 4 | 12 | **48** |
+| 3U – 6 Bay | 6 | 12 | **72** |
+| 4U – 12 Bay | 12 | 12 | **144** |
 
 ## Importing into NetBox
 
@@ -90,3 +125,7 @@ EOF
 ```
 
 Alternatively, you can use the [netbox-community/devicetype-library](https://github.com/netbox-community/devicetype-library) import scripts to bulk-load YAML templates from a repository that follows this directory layout.
+
+## Contributors
+
+- [@d3ej](https://github.com/d3ej) — Thanks for the contribution! ([PR #1](https://github.com/slientnight/Netbox-Templates/pull/1))
