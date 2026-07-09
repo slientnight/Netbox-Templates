@@ -1,0 +1,93 @@
+---
+manufacturer: Generic
+model: Fiber Cassette - 12 Port LC/UPC Pass-Through
+slug: generic-fiber-cassette-12-port-lc-upc-pass-through
+part_number: FC-12P-LCUPC-PT
+airflow: passive
+comments: 'Twelve-port LC/UPC pass-through cassette. Each front port maps 1:1 to the matching rear port on the same module.'
+front-ports:
+  - name: '{module}:01'
+    type: lc-upc
+    rear_port: '{module}:01'
+    rear_port_position: 1
+  - name: '{module}:02'
+    type: lc-upc
+    rear_port: '{module}:02'
+    rear_port_position: 1
+  - name: '{module}:03'
+    type: lc-upc
+    rear_port: '{module}:03'
+    rear_port_position: 1
+  - name: '{module}:04'
+    type: lc-upc
+    rear_port: '{module}:04'
+    rear_port_position: 1
+  - name: '{module}:05'
+    type: lc-upc
+    rear_port: '{module}:05'
+    rear_port_position: 1
+  - name: '{module}:06'
+    type: lc-upc
+    rear_port: '{module}:06'
+    rear_port_position: 1
+  - name: '{module}:07'
+    type: lc-upc
+    rear_port: '{module}:07'
+    rear_port_position: 1
+  - name: '{module}:08'
+    type: lc-upc
+    rear_port: '{module}:08'
+    rear_port_position: 1
+  - name: '{module}:09'
+    type: lc-upc
+    rear_port: '{module}:09'
+    rear_port_position: 1
+  - name: '{module}:10'
+    type: lc-upc
+    rear_port: '{module}:10'
+    rear_port_position: 1
+  - name: '{module}:11'
+    type: lc-upc
+    rear_port: '{module}:11'
+    rear_port_position: 1
+  - name: '{module}:12'
+    type: lc-upc
+    rear_port: '{module}:12'
+    rear_port_position: 1
+rear-ports:
+  - name: '{module}:01'
+    type: lc-upc
+    positions: 1
+  - name: '{module}:02'
+    type: lc-upc
+    positions: 1
+  - name: '{module}:03'
+    type: lc-upc
+    positions: 1
+  - name: '{module}:04'
+    type: lc-upc
+    positions: 1
+  - name: '{module}:05'
+    type: lc-upc
+    positions: 1
+  - name: '{module}:06'
+    type: lc-upc
+    positions: 1
+  - name: '{module}:07'
+    type: lc-upc
+    positions: 1
+  - name: '{module}:08'
+    type: lc-upc
+    positions: 1
+  - name: '{module}:09'
+    type: lc-upc
+    positions: 1
+  - name: '{module}:10'
+    type: lc-upc
+    positions: 1
+  - name: '{module}:11'
+    type: lc-upc
+    positions: 1
+  - name: '{module}:12'
+    type: lc-upc
+    positions: 1
