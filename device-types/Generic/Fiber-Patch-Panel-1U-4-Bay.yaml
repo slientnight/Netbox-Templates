@@ -1,0 +1,18 @@
+---
+manufacturer: Generic
+model: Fiber Patch Panel - 1U - 4 Bay
+slug: generic-fiber-patch-panel-1u-4-bay
+u_height: 1.0
+is_full_depth: false
+airflow: passive
+is_powered: false
+comments: '1U fiber patch panel enclosure with four cassette bays. Intended for use with the Generic Fiber Cassette - 6 Port LC/APC Pass-Through module type.'
+module-bays:
+  - name: Bay 01
+    position: '01'
+  - name: Bay 02
+    position: '02'
+  - name: Bay 03
+    position: '03'
+  - name: Bay 04
+    position: '04'
